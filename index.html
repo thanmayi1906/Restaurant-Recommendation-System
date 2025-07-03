@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Restaurant Recommendation System</h1>
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn">Home</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-section">
+            <h2 class="main-title">Build recommendation system with ease!!</h2>
+            
+            <p class="description">
+                In this age of information overload, people use a variety of strategies to make choices. 
+                Our system provides tailored recommendations based on your needs. Choose a scenario to get 
+                the most relevant restaurant suggestions.
+            </p>
+
+            <form action="/recommend" method="POST">
+                <div class="form-section">
+                    <label class="form-label">Restaurant Name</label>
+                    <input type="text" name="restaurant" class="form-input" placeholder="Enter restaurant name" required>
+                </div>
+
+                <div class="form-section">
+                    <label class="form-label">Select Scenario</label>
+                    <select name="scenario" class="form-input" required>
+                        <option value="">-- Choose a scenario --</option>
+                        <option value="User">User: Find similar restaurants</option>
+                        <option value="Owner">Owner: Competitive analysis</option>
+                        <option value="Delivery">Delivery: Similar delivery options</option>
+                    </select>
+                </div>
+
+                <div class="test-section">
+                    <span class="test-label">Test the system</span>
+                    <button type="submit" class="recommend-btn">Recommend</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="right-section">
+            <img src="{{ url_for('static', filename='food2.webp') }}" alt="Restaurant Food" class="food-image">
+        </div>
+    </div>
+</body>
+</html>
